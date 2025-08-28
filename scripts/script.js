@@ -68,3 +68,8 @@ clickedElement('card-container').addEventListener('click', function (e) {
     cartContainer.append(newCart);
   }
 });
+
+document.getElementById('clear-btn').addEventListener('click', function () {
+  const cartContainer = clickedElement('cart-container');
+  cartContainer.innerHTML = '';
+});
