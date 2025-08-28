@@ -73,3 +73,16 @@ document.getElementById('clear-btn').addEventListener('click', function () {
   const cartContainer = clickedElement('cart-container');
   cartContainer.innerHTML = '';
 });
+
+clickedElement('card-container').addEventListener('click', function (e) {
+  if (
+    e.target.className.includes('copy-button') ||
+    e.target.closest('.copy-button')
+  ) {
+    const copyQuantity = clickedElement('copy-quantity').innerText;
+
+    const copyCurrentQuantity = Number(copyQuantity) + 1;
+    clickedElement('copy-quantity').innerText = copyCurrentQuantity;
+    console.log(copyCurrentQuantity);
+  }
+});
