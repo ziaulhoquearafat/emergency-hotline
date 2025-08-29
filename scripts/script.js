@@ -50,7 +50,6 @@ clickedElement('card-container').addEventListener('click', function (e) {
     const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes
       .toString()
       .padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${ampm}`;
-    console.log(formattedTime);
 
     const cartContainer = clickedElement('cart-container');
     const newCart = document.createElement('div');
@@ -83,6 +82,16 @@ clickedElement('card-container').addEventListener('click', function (e) {
 
     const copyCurrentQuantity = Number(copyQuantity) + 1;
     clickedElement('copy-quantity').innerText = copyCurrentQuantity;
-    console.log(copyCurrentQuantity);
+
+    const cardBtn = e.target.closest('.copy-button');
+
+    const copyNumber =
+      cardBtn.parentNode.parentNode.children[1].children[2].innerText;
+
+    // copy the text to clipboard
+
+    navigator.clipboard.writeText(copyNumber).then(() => {
+      alert('নম্বর কপি হয়েছে ' + copyNumber);
+    });
   }
 });
