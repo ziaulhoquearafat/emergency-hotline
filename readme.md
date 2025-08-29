@@ -39,6 +39,10 @@ Event delegation is a technique to add a single event listener to a parent
 element. It is useful for do not add separate event listener to the child
 element. Event delegation is very easy and fastest way you can code.
 
+Example: clickedElement('card-container').addEventListener('click', function (e)
+{ if (e.target.className.includes('heart-btn')) { const quantity =
+clickedElement('heart-quantity').innerText;} });
+
 5. What is the difference between preventDefault() and stopPropagation()
    methods?
 
